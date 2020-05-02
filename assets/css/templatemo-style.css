@@ -310,6 +310,7 @@ html {
     height: 3px;
     background-color: #a43f49;
     margin: 10px auto;
+    align-items: flex-start;
 }
 
 .section-heading span {
