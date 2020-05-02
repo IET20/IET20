@@ -666,15 +666,15 @@ section.contact-me {
 
     .section {
         color: #fff;
-        width: 65%;
-        right: 5%;
-        left: 30%;
+        width: 80%;
+        right: 20%;
+        left: 50%;
     }
 }
 
 @media screen and (max-width: 1680px) and (min-width: 846px) { 
     .menu .social-network ul li a {
-        width: 36px;
+        width: 50px;
         height: 36px;
         line-height: 36px;
     }
@@ -769,9 +769,9 @@ section.contact-me {
         display: inline-block;
     }
     .section {
-        width: 94%;
-        right: 3%;
-        left: 3%;
+        width: 100%;
+        right: 0%;
+        left: 0%;
     }
     .isotope-item {
         width: 94%;
