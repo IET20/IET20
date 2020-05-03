@@ -8,7 +8,6 @@ var app = new Vue({
     resultCount: 0,
   },
   created: function () {
-    console.log("created");
     this.apiQuery();
   },
   methods: {
@@ -16,7 +15,6 @@ var app = new Vue({
       fetch("https://sheetsu.com/apis/v1.0su/6c312ee92a42")
         .then((res) => res.json())
         .then((results) => {
-          console.log(results);
           this.apiResults = results.map((el) => {
             data = Object.entries(el);
             return {
@@ -48,7 +46,6 @@ var app = new Vue({
       const branchResults = this.apiResults.filter(
         (el) => el.branch === this.chosenBranch
       );
-      console.log(branchResults);
       const filteredResults = new Set();
       branchResults.forEach((el) => {
         if (
@@ -60,7 +57,6 @@ var app = new Vue({
           filteredResults.add(el);
         }
       });
-      console.log(filteredResults);
       if (filteredResults.size >= 10) {
         this.resultCount = 10;
         return Array.from(filteredResults).slice(0, 10);
@@ -77,7 +73,6 @@ var app = new Vue({
           filteredResults.add(el);
         }
       });
-      console.log(filteredResults);
       if (filteredResults.size >= 10) {
         this.resultCount = 10;
         return Array.from(filteredResults).slice(0, 10);
@@ -90,7 +85,6 @@ var app = new Vue({
           filteredResults.add(el);
         }
       });
-      console.log(filteredResults);
       if (filteredResults.size >= 10) {
         this.resultCount = 10;
         return Array.from(filteredResults).slice(0, 10);
