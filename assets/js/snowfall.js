@@ -5,12 +5,12 @@ var snowStorm = (function(sfd, document) {
   
     this.autoStart = true;          
     this.excludeMobile = true;      
-    this.flakesMax = 128;           
-    this.flakesMaxActive = 40;      
-    this.animationInterval = 5;    
+    this.flakesMax = 50;           
+    this.flakesMaxActive = 20;      
+    this.animationInterval = 80;    
     this.useGPU = true;             
     this.className = null;          
-    this.excludeMobile = true;      
+    this.excludeMobile = false;      
     this.flakeBottom = null;        
     this.followMouse = false;        
     this.snowColor = '#fff';        

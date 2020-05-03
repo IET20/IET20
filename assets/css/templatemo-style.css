@@ -164,10 +164,11 @@ html {
 
 
 .menu .copyright-text {
+    text-align: center;
     padding-top: 20x;
     bottom: 0;
-    position: fixed;
-    left: auto;
+    position: absolute;
+    left: 0 !important;
     width: 100%;
 }
 
@@ -175,8 +176,6 @@ html {
     border-top: 1px solid rgba(250, 250, 250, 0.1);
     display: inline-block;
     width: 100%;
-    padding-left: 10px;
-    padding-right: 10px;
     padding-top: 30x;
     font-size: 14px;
     color: #000000;
@@ -370,6 +369,12 @@ div.img-div {
         order: 1;
         margin-bottom: 30px;
     }
+    #menu {
+        max-height: 100vh !important;
+    }
+    .menu .copyright-text {
+        bottom: 10%;
+    }
 }
 
 img.post-img {
@@ -414,7 +419,7 @@ div.image-div {
     border-top: 2px solid rgba(250, 250, 250, 0.1);
 }
 
-#search .left-image,#search .right-text {
+#search .left-image {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -448,10 +453,9 @@ div.image-div {
     margin-top: 30px;
 }
 
-
-
-
-
+.my-services {
+    padding-bottom: 100px;
+}
 
 section.my-work .section-heading {
     text-align: center;
