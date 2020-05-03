@@ -5,6 +5,7 @@ var app = new Vue({
     searchText: "",
     searchQuery: "",
     chosenBranch: "",
+    branchQuery: "",
     resultCount: 0,
   },
   created: function () {
@@ -37,14 +38,16 @@ var app = new Vue({
         alert("Enter Name");
         return;
       }
+      this.branchQuery = this.chosenBranch;
       this.searchQuery = this.searchText;
     },
   },
   computed: {
     searchResults: function () {
       if (!this.searchQuery) return;
+      if (!this.branchQuery) return;
       const branchResults = this.apiResults.filter(
-        (el) => el.branch === this.chosenBranch
+        (el) => el.branch === this.branchQuery
       );
       const filteredResults = new Set();
       branchResults.forEach((el) => {
