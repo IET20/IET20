@@ -119,13 +119,24 @@ Let's forget all the differences and let's come up together to make this book of
             >
           </div>
           <div id="search">
-            <template v-for="item in apiResults">
-              <div class="search-results">
-                <img :src="item.picture">
-                <div class="search-text">
-                  <p>{{ item.name }}</p>
-                  <p>{{ item.branch }}</p>
-                  <p>{{ item.experience }}</p>
+            <template v-for="item in searchResults">
+              <div class="left-image-post">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="left-image">
+                      <img :src="item.picture" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="right-text">
+                      <h4>
+                        {{ item.name }}
+                        <br>
+                        ({{ item.branch }})
+                      </h4>
+                      <p>{{ item.experience }}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <hr>

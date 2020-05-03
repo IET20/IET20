@@ -1,20 +1,8 @@
-// var app = new Vue({
-//   el: "#search",
-//   data: {
-//     apiResults = 'hi',
-//     searchQuery = [],
-//   },
-//   methods: {
-//     apiQuery: function () {
-//       fetch('https://sheetsu.com/apis/v1.0su/6c312ee92a42').then(res => res.json()).then(results => this.apiResults = results)
-//     }
-//   }
-// });
-
 var app = new Vue({
   el: "#search",
   data: {
     apiResults: [],
+    searchResults: [],
   },
   created: function () {
     console.log("created");
@@ -43,6 +31,7 @@ var app = new Vue({
                   .find((el) => el.startsWith("id")),
             };
           });
+          this.searchResults = this.apiResults;
         });
     },
   },
