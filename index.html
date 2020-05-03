@@ -17,6 +17,9 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/fontawesome.css" />
     <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script defer src="index.js"></script>
   </head>
 
   <body>
@@ -115,11 +118,19 @@ Let's forget all the differences and let's come up together to make this book of
               >Search responses filled by your friends. You can search by responses by entering branch name or name of the person.</span
             >
           </div>
-          <div>
-                <p style="text-align: center; color: #f5b2b2;">
-                  SEARCH OPTION IS NOT AVAILABE NOW BECAUSE THERE ARE LESS THAN 5 RESPONSE
-                </p>            
-        </div>
+          <div id="search">
+            <template v-for="item in apiResults">
+              <div class="search-results">
+                <img :src="item.picture">
+                <div class="search-text">
+                  <p>{{ item.name }}</p>
+                  <p>{{ item.branch }}</p>
+                  <p>{{ item.experience }}</p>
+                </div>
+              </div>
+              <hr>
+            </template>
+          </div>
       </section>
 
       <section class="section my-work" data-section="section3">

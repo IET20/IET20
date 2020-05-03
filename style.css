@@ -1,0 +1,8 @@
+.search-results img {
+    width: auto;
+    height: 300px;
+    float: left;
+}
+.search-text {
+    min-height: 300px;
+}
