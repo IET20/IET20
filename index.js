@@ -3,6 +3,8 @@ var app = new Vue({
   data: {
     apiResults: [],
     searchText: "",
+    searchQuery: "",
+    chosenBranch: "",
   },
   created: function () {
     console.log("created");
@@ -31,12 +33,42 @@ var app = new Vue({
           });
         });
     },
+    performSearch: function () {
+      if (!this.chosenBranch) {
+        alert("Choose a branch");
+        return;
+      }
+      if (!this.searchText) {
+        alert("Enter Name");
+        return;
+      }
+      this.searchQuery = this.searchText;
+    },
   },
   computed: {
     searchResults: function () {
-      return this.apiResults.filter((el) =>
-        el.name.toLowerCase().includes(this.searchText.toLowerCase())
+      if (!this.searchQuery) return;
+      const branchResults = this.apiResults.filter(
+        (el) => el.branch === this.chosenBranch
       );
+      console.log(branchResults);
+      const filteredResults = new Set();
+      branchResults.forEach((el) => {
+        if (
+          el.name.trim().toLowerCase().includes(this.searchQuery.toLowerCase())
+        ) {
+          filteredResults.add(el);
+        }
+      });
+      console.log(filteredResults);
+      if (filteredResults.size >= 10)
+        return Array.from(filteredResults).slice(0, 10);
+
+      if (filteredResults.size === 0) {
+        return [{ none: true }];
+      }
+
+      return filteredResults;
     },
   },
 });

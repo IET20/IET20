@@ -121,8 +121,22 @@ Let's forget all the differences and let's come up together to make this book of
             <div class="input-group mb-3">
               <input v-model="searchText" type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
             </div>
+
+            <select v-model="chosenBranch">
+              <option value="" selected disabled>Choose Branch</option>
+              <option value="CS-A">CS A</option>
+              <option value="CS-B">CS B</option>
+              <option value="IT-A">IT A</option>
+              <option value="IT-B">IT B</option>
+              <option value="ETC-A">ETC A</option>
+              <option value="ETC-B">ETC B</option>
+            </select>
+            <button @click="performSearch">Search</button>
             <template v-for="item in searchResults">
-              <div class="left-image-post">
+              <div v-if="item.none">
+                <p>No Results found</p>
+              </div>
+              <div v-else class="left-image-post">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="left-image">
