@@ -130,13 +130,14 @@ Let's forget all the differences and let's come up together to make this book of
               <option value="IT-B">IT B</option>
               <option value="ETC-A">ETC A</option>
               <option value="ETC-B">ETC B</option>
+              <option value="MECH">Mechanical</option>
+              <option value="CIVIL">Civil</option>
+              <option value="E&I">E&I</option>
             </select>
             <button @click="performSearch">Search</button>
+            <p v-if="searchQuery">{{ resultCount }} Results</p>
             <template v-for="item in searchResults">
-              <div v-if="item.none">
-                <p>No Results found</p>
-              </div>
-              <div v-else class="left-image-post">
+              <div class="left-image-post">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="left-image">
