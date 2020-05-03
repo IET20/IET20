@@ -29,12 +29,12 @@ var app = new Vue({
         });
     },
     performSearch: function () {
-      if (!this.chosenBranch) {
-        alert("Choose a branch");
+      if (!this.searchText) {
+        alert("Kindly Enter the Name");
         return;
       }
-      if (!this.searchText) {
-        alert("Enter Name");
+      if (!this.chosenBranch) {
+        alert("Kindly choose a branch");
         return;
       }
       this.searchQuery = this.searchText;

@@ -15,7 +15,13 @@ body {
     width: 100%;
 }
 
+/* .left-text h4.name {
+    text-align: right;
+} */
 
+.pinkk {
+    color: #f5b2b2;;
+}
 
 body {
     overflow-x: hidden;
@@ -123,6 +129,10 @@ html {
 
 /* Sidebar Menu */
 
+#page-wraper .menu {
+    overflow-y: hidden !important;
+}
+
 .menu .image {
     margin-top: 0px;
 }
@@ -155,7 +165,10 @@ html {
 
 .menu .copyright-text {
     padding-top: 20x;
-    position: relative;
+    bottom: 0;
+    position: fixed;
+    left: auto;
+    width: 100%;
 }
 
 .menu .copyright-text p {
@@ -257,6 +270,35 @@ html {
 
 /* Section */
 
+
+.drop-down {
+    border-radius: 2px;
+    margin-right: 30px;
+    height: calc(2.25rem + 2px) !important;
+    padding: .375rem .75rem !important;
+}
+
+.section.my-services {
+    min-height: 40vh !important;
+}
+
+.search {
+    padding: 5px 10px;
+    background-color: #a43f49;
+    color: white;
+    border: none;
+    appearance: none;
+    -moz-appearance: none;
+    border-radius: 2px;
+    height: calc(2.25rem + 2px) !important;
+    padding: .375rem .75rem !important;
+}
+
+.search:focus {
+    outline: none;
+    border: none;
+}
+
 .section {
     color: #000000;
     width: 55%;
@@ -314,8 +356,49 @@ html {
     color: #fff;
 }
 
+div.img-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+@media only screen and (max-width:768px) {
+    .text-div {
+        order: 2;
+    }
+    .img-div {
+        order: 1;
+        margin-bottom: 30px;
+    }
+}
 
+img.post-img {
+    width: 100%
+} 
+
+div.image-div {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden !important;
+}
+
+.search-img {
+    width: 70%;
+}
+
+/* #posts {
+    display: flex;
+    flex-direction: column;
+} */
+
+.button-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+}
 
 /* Left & Right Post */
 
@@ -324,6 +407,25 @@ html {
     padding-top: 60px;
     border-top: 2px solid rgba(250, 250, 250, 0.1);
 }
+
+#posts > div.left-image-post ~ div.left-image-post {
+    margin-top: 60px;
+    padding-top: 60px;
+    border-top: 2px solid rgba(250, 250, 250, 0.1);
+}
+
+#search .left-image,#search .right-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* div.left-image-post:nth-of-type(1) {
+    margin-top: 0px ;
+    padding-top: 0px;
+    border-top: none;
+} */
 
 .left-image img,
 .right-image img {
@@ -353,13 +455,18 @@ html {
 
 section.my-work .section-heading {
     text-align: center;
-    padding: 80px 45px 50px 45px;
+    padding: 80px 45px 10px 45px;
+}
+
+.loader {
+    width: 100%;
+    margin: auto;
 }
 
 
 @media screen and (max-width: 1680px) {
     .menu {
-        left: 5%;
+        left: 0%;
     }
 
     .section {
