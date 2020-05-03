@@ -17,6 +17,8 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/fontawesome.css" />
     <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script defer src="index.js"></script>
   </head>
 
   <body>
@@ -115,11 +117,33 @@ Let's forget all the differences and let's come up together to make this book of
               >Search responses filled by your friends. You can search by responses by entering branch name or name of the person.</span
             >
           </div>
-          <div>
-                <p style="text-align: center; color: #f5b2b2;">
-                  SEARCH OPTION IS NOT AVAILABE NOW BECAUSE THERE ARE LESS THAN 5 RESPONSE
-                </p>            
-        </div>
+          <div id="search">
+            <div class="input-group mb-3">
+              <input v-model="searchText" type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+            </div>
+            <template v-for="item in searchResults">
+              <div class="left-image-post">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="left-image">
+                      <img :src="item.picture" alt="" />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="right-text">
+                      <h4>
+                        {{ item.name }}
+                        <br>
+                        ({{ item.branch }})
+                      </h4>
+                      <p>{{ item.experience }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+            </template>
+          </div>
       </section>
 
       <section class="section my-work" data-section="section3">
