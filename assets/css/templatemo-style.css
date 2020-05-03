@@ -148,6 +148,7 @@ html {
 }
 
 .menu .author-content h4 {
+    font-size: 25px;
     margin-bottom: 2px;
     color: #000000;
 
@@ -751,8 +752,15 @@ section.contact-me {
         height: 120px;
     }
 
+
+    .menu .author-content h4 {
+        font-size: 110%;
+        margin-bottom: 2px;
+        color: #000000;
+    
+    }
+
     .menu .author-content {
-        font-size: 70%;
         margin: 20px 5px 20px 5px;
     }
 
