@@ -31,9 +31,6 @@ var app = new Vue({
           });
         });
     },
-    searchQuery: function () {
-      console.log("haha");
-    },
   },
   computed: {
     searchResults: function () {
