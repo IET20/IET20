@@ -15,6 +15,7 @@ body {
 #page-wraper {
     background: url(../images/page-bg.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
+    background-color: black;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-position: 0cm;
