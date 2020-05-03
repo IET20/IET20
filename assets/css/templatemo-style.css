@@ -17,7 +17,7 @@ body {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    position: fixed;
+    background-position: 0cm;
     background-size: cover;
     width: 100%;
 }
