@@ -2,7 +2,7 @@ var app = new Vue({
   el: "#search",
   data: {
     apiResults: [],
-    searchResults: [],
+    searchText: "",
   },
   created: function () {
     console.log("created");
@@ -13,8 +13,6 @@ var app = new Vue({
       fetch("https://sheetsu.com/apis/v1.0su/6c312ee92a42")
         .then((res) => res.json())
         .then((results) => {
-          console.log(results[0]["Your college experience... 🤓"]);
-
           this.apiResults = results.map((el) => {
             data = Object.entries(el);
             return {
@@ -31,8 +29,17 @@ var app = new Vue({
                   .find((el) => el.startsWith("id")),
             };
           });
-          this.searchResults = this.apiResults;
         });
+    },
+    searchQuery: function () {
+      console.log("haha");
+    },
+  },
+  computed: {
+    searchResults: function () {
+      return this.apiResults.filter((el) =>
+        el.name.toLowerCase().includes(this.searchText.toLowerCase())
+      );
     },
   },
 });

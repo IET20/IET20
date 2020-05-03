@@ -118,6 +118,9 @@ Let's forget all the differences and let's come up together to make this book of
             >
           </div>
           <div id="search">
+            <div class="input-group mb-3">
+              <input v-model="searchText" type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon1">
+            </div>
             <template v-for="item in searchResults">
               <div class="left-image-post">
                 <div class="row">
