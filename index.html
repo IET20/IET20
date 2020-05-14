@@ -20,6 +20,69 @@
     <script defer src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script defer src="index.js"></script>
     <script src="assets/js/snowfall.js"></script>
+    <style>
+      @import "https://fonts.googleapis.com/css?family=Raleway";
+
+      #report { 
+        -webkit-user-select: none; /* Chrome/Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+ */
+        margin: 4em auto;
+        width: 100px; 
+        height: 30px; 
+        line-height: 30px;
+        background: teal;
+        color: white;
+        font-weight: 700;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid white;
+        font-family: Raleway; 
+
+      }
+
+      #report:hover { background: #666; }
+      #report:active { background: #444; }
+
+      #reportForm { 
+        display: none;
+        font-family: Raleway; 
+        border: 6px solid salmon; 
+        padding: 2em;
+        width: 400px;
+        text-align: center;
+        background: #fff;
+        position: fixed;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        -webkit-transform: translate(-50%,-50%)
+        
+      }
+
+      input, textarea { 
+        margin: .8em auto;
+        font-family: Raleway; 
+        text-transform: inherit; 
+        font-size: inherit;
+        
+        display: block; 
+        width: 280px; 
+        padding: .4em;
+      }
+      textarea { height: 80px; resize: none; }
+
+      .formBtn { 
+        width: 140px;
+        display: inline-block;
+        background: teal;
+        color: #fff;
+        font-weight: 100;
+        font-size: 1.2em;
+        border: none;
+        height: 50px;
+      }
+    </style>
   </head>
 
   <body>
@@ -43,10 +106,22 @@
                 <li><a href="#section3">RESPONSES</a></li>
               </ul>
             </nav>
+            <div id="report">REPORT</div>
+              <div id="reportForm">
+
+                <h1>REPORT ISSUE/BUG/ABUSE</h1>
+                
+                
+                <form action="#">
+                  <input placeholder="Your Name" type="text" required />
+                  <textarea placeholder="Describe issue here"></textarea>
+                  <input class="formBtn" type="submit" />
+                  <input class="formBtn" type="reset" />
+                </form>
+              </div>
             <div class="copyright-text">
-              <p><br><br>Copyright 2020 <br> 
                 <a href="https://www.linkedin.com/in/kanishk-tiwari-504444141/" target="_blank" style="color: white;"><u>KT26</u></a><br>
-                (IET DAVV)
+                (IET DAVV 2020)
               </p>
             </div>
           </div>
@@ -263,7 +338,8 @@
             if(i>-1) {
               var personName = Object.values(data[i])[2];
               var imgUrl = "https://drive.google.com/uc?export=view&id="+Object.values(data[i])[6];
-              var text = Object.values(data[i])[4]
+
+'              var text = Object.values(data[i])[4]
 
               var branch  = "<span class = 'pinkk'>("+Object.values(data[i])[3]+")</span"
 
@@ -282,6 +358,25 @@
 
         }
         request.send()
+
+        $(function() {
+          $('#report').click(function() {
+            $('#reportForm').fadeToggle();
+          })
+          $(document).mouseup(function (e) {
+            var container = $("#reportForm");
+
+            if (!container.is(e.target)
+                && container.has(e.target).length === 0)
+            {
+                container.fadeOut();
+            }
+          });
+          
+        });
+
+
+
     </script>
   </body>
 </html>
