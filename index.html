@@ -317,47 +317,40 @@
     </script>
     <script>
         // Open a new connection, using the GET request on the URL endpoint
-        var request = new XMLHttpRequest();
-        request.overrideMimeType("application/json");  
-        request.open('GET', 'https://sheetsu.com/apis/v1.0su/6c312ee92a42', true)
-        request.setRequestHeader("Access-Control-Allow-Origin","*");
-        request.setRequestHeader("Access-Control-Allow-Credentials", "true");
-        request.setRequestHeader("Access-Control-Allow-Methods", "GET");
-        request.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
+        var request = fetch('https://v2-api.sheety.co/b8aa3b0c2c9d05bda7d616ca94452da1/impressions/formResponses1')
 
-        request.onload = function() {
-          $(".loader").fadeOut();
-          var data = JSON.parse(this.response);
-          var count = data.length;
-          $("#resCount").text("( Total Responses - "+count+" )");
+        request.then(function(res) {
+          res.json().then(function (data) {
+            data = data.formResponses1;
+            $(".loader").fadeOut();
+            var count = data.length;
+            $("#resCount").text("( Total Responses - "+count+" )");
 
-          var postsContainer = $("#posts");
-          var button = "<div class='col-md-4 offset-md-4 button-div'><button class='my-button'><a href='all.html' target='_blank'>View All</a></button></div>"
+            var postsContainer = $("#posts");
+            var button = "<div class='col-md-4 offset-md-4 button-div'><button class='my-button'><a href='all.html' target='_blank'>View All</a></button></div>"
 
-          for(i = count-1; i > count-6;i--) {
-            if(i>-1) {
-              var personName = Object.values(data[i])[2];
-              var imgUrl = "https://drive.google.com/uc?export=view&id="+Object.values(data[i])[6];
+            for(i = count-1; i > count-6;i--) {
+              if(i>-1) {
+                var personName = Object.values(data[i])[3];
+                var imgUrl = "https://drive.google.com/uc?export=view&"+Object.values(data[i])[6].split("?").find((el) => el.startsWith("id"));
 
-'              var text = Object.values(data[i])[4]
+                var text = Object.values(data[i])[5]
+                var branch  = "<span class = 'pinkk'>("+Object.values(data[i])[4]+")</span>"
 
-              var branch  = "<span class = 'pinkk'>("+Object.values(data[i])[3]+")</span"
+                var leftMarkup ="<div class='left-image-post'><div class='row'><div class='col-md-6 img-div'><div class='left-image image-div'><img src='"+imgUrl+"' class='post-img' alt='' /></div></div><div class='col-md-6 text-div'><div class='right-text'><h4 class = 'name'>"+personName+"<br>"+branch+"</h4><p class='post-text'>"+text+"</p></div></div></div></div>";
+                var rightMarkup ="<div class='right-image-post'><div class='row'><div class='col-md-6 text-div'><div class='left-text'><h4 class='name'>"+personName+"<br>"+branch+"</h4><p class='post-text'>"+text+"</p></div></div><div class='col-md-6 img-div'><div class='right-image image-div'><img src='"+imgUrl+"' class='post-img' alt='' /></div></div></div></div>";
 
-              var leftMarkup ="<div class='left-image-post'><div class='row'><div class='col-md-6 img-div'><div class='left-image image-div'><img src='"+imgUrl+"' class='post-img' alt='' /></div></div><div class='col-md-6 text-div'><div class='right-text'><h4 class = 'name'>"+personName+"<br>"+branch+"</h4><p class='post-text'>"+text+"</p></div></div></div></div>";
-              var rightMarkup ="<div class='right-image-post'><div class='row'><div class='col-md-6 text-div'><div class='left-text'><h4 class='name'>"+personName+"<br>"+branch+"</h4><p class='post-text'>"+text+"</p></div></div><div class='col-md-6 img-div'><div class='right-image image-div'><img src='"+imgUrl+"' class='post-img' alt='' /></div></div></div></div>";
-
-              if(i%2 == 0) {
-                postsContainer.append(leftMarkup)
-              }
-              else {
-                postsContainer.append(rightMarkup)
+                if(i%2 == 0) {
+                  postsContainer.append(leftMarkup)
+                }
+                else {
+                  postsContainer.append(rightMarkup)
+                }
               }
             }
-          }
-          postsContainer.append(button);
-
-        }
-        request.send()
+            postsContainer.append(button);
+          })
+        })
 
         $(function() {
           $('#report').click(function() {
