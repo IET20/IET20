@@ -13,18 +13,22 @@ var app = new Vue({
   },
   methods: {
     apiQuery: function () {
-      fetch("https://sheetsu.com/apis/v1.0su/6c312ee92a42")
+      fetch(
+        "https://v2-api.sheety.co/b8aa3b0c2c9d05bda7d616ca94452da1/impressions/formResponses1"
+      )
         .then((res) => res.json())
         .then((results) => {
-          this.apiResults = results.map((el) => {
+          this.apiResults = results.formResponses1.map((el) => {
             data = Object.entries(el);
             return {
-              timestamp: data[0][1],
-              email: data[1][1],
-              name: data[2][1],
-              branch: data[3][1],
-              experience: data[4][1],
-              picture: "https://drive.google.com/uc?id=" + el.URL,
+              timestamp: data[1][1],
+              email: data[2][1],
+              name: data[3][1],
+              branch: data[4][1],
+              experience: data[5][1],
+              picture:
+                "https://drive.google.com/uc?" +
+                data[6][1].split("?").find((el) => el.startsWith("id")),
             };
           });
         });
