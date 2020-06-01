@@ -55,9 +55,10 @@
         position: fixed;
         top:50%;
         left:50%;
+		position : fixed;
+		z-index: 10;
         transform: translate(-50%,-50%);
-        -webkit-transform: translate(-50%,-50%)
-        
+        -webkit-transform: translate(-50%,-50%) 
       }
 
       input, textarea { 
@@ -84,6 +85,21 @@
       }
     </style>
   </head>
+  
+  
+     <div style="position:fixed; z-index:10010" id="reportForm">
+
+      <h1 style="font-size: 30px;">REPORT ISSUE/BUG/ABUSE</h1>
+      
+      
+      <form action="#">
+        <input placeholder="Your Name" type="text" required />
+        <textarea placeholder="Describe issue here"></textarea>
+        <input class="formBtn" type="submit" />
+        <input class="formBtn" type="reset" />
+      </form>
+    </div>
+
 
   <body>
     <div id="page-wraper">
@@ -253,18 +269,6 @@
     </div>
 
 
-    <div id="reportForm">
-
-      <h1 style="font-size: 30px;">REPORT ISSUE/BUG/ABUSE</h1>
-      
-      
-      <form action="#">
-        <input placeholder="Your Name" type="text" required />
-        <textarea placeholder="Describe issue here"></textarea>
-        <input class="formBtn" type="submit" />
-        <input class="formBtn" type="reset" />
-      </form>
-    </div>
 
 
 

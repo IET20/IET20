@@ -220,6 +220,7 @@ html {
   color: #fff;
   cursor: pointer;
   font-size: 20px;
+  z-index: 1;
   position: fixed;
   right: 20px;
   top: 20px;
@@ -229,6 +230,7 @@ html {
     z-index: 999;
     cursor: pointer;
     position: fixed;
+	z-index: 1;
     top: 0;
     left: 0;
     color: #a43f49;
@@ -515,27 +517,35 @@ section.my-work .section-heading {
 .menu .container {
     padding-left: 0;
     padding-right: 0;
+	z-index: 1;
+        display: inline-block;
 }
 
 @media screen and (max-width: 1280px) and (min-width: 846px) {
     .menu {
         width: 25%;
+		z-index: 1;
+        display: inline-block;
     }
 }
 
 #menu-toggle,
 #menu-close {
     display: none;
+	z-index: 1;
+        display: inline-block;
 }  
 
 @media screen and (max-width: 845px) {        
     #menu-toggle,
     #menu-close {
+		z-index: 1;
         display: inline-block;
     }    
 
     .menu {        
         width: 320px;
+		z-index: 1;
         -webkit-transform: translateX(-100%) !important;
         transform: translateX(-100%) !important;
         transition: -webkit-transform 233ms cubic-bezier(0, 0, 0.21, 1);
